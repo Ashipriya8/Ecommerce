@@ -1,0 +1,29 @@
+    <form [formGroup]="cartItem">
+    <label>Product Name </label>
+    <input type="text" name="post" [(ngModel)]="post">
+    <label>Price </label>
+    <input type="number" name="post" [(ngModel)]="post" >
+    <label>Quantity</label>
+    <button type="button" name="post" (click)="additem()" [(ngModel)]="post">+</button>
+    {{currentNumber}}
+    <button type="button" name="post" (click)="deleteitem()" [(ngModel)]="post">-</button>
+        <br>
+    <br>
+    <button type="button" (click)="addNewRow()" >+ Add New Row</button><br><br>
+         <div formArrayName="dynaRow">
+    <div *ngFor="let itemrow of cartItem.controls.dynaRow.controls; let i=index"  [formGroupName]="i">
+        <label>Product Name </label>
+        <input type="text" name="post" [(ngModel)]="post">
+        <label>Price </label>
+        <input type="number" name="post" [(ngModel)]="post">
+        <label>Quantity</label>
+        <button type="button" name="post" (click)="additem()" [(ngModel)]="post">+</button>
+        {{currentNumber}}
+    <button type="button" name="post" (click)="deleteitem()" [(ngModel)]="post">-</button>
+        <br>
+    <button *ngIf="cartItem.controls.dynaRow.controls.length > 1" (click)="deleteRow(i)" >- Delete Row</button><br>
+  </div>
+</div>
+</form><br>
+<button type="button" name="checkout" routerLink="/checkout" (click)="addpost(post)">Checkout</button> 
+<app-checkout [chilpost]="parentPosts"></app-checkout>

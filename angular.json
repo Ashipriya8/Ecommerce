@@ -31,8 +31,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
-            ],
+              
+              
+              ],
+              
             "scripts": []
           },
           "configurations": {
